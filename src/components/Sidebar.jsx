@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { MdHomeFilled, MdSearch } from "react-icons/md";
 import { IoLibrary } from "react-icons/io5";
 import Playlists from "./Playlists";
+import { Link } from "react-router-dom";
 export default function Sidebar() {
   return (
     <Container>
@@ -14,17 +15,23 @@ export default function Sidebar() {
           />
         </div>
         <ul>
-          <li>
+          <li >
+            <Link to='/home'  className="flex flex-row gap-5 items-center">
             <MdHomeFilled />
             <span>Home</span>
+            </Link>
           </li>
-          <li>
+          <li >
+            <Link to='/' className="flex flex-row gap-5 items-center">
             <MdSearch />
             <span>Search</span>
+            </Link>
           </li>
-          <li>
+          <li >
+            <Link  to='/mylibrary'  className="flex flex-row gap-5 items-center">
             <IoLibrary />
             <span>Your Library</span>
+            </Link>
           </li>
         </ul>
       </div>
