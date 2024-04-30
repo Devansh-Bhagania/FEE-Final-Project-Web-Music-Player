@@ -8,8 +8,8 @@ export default function Navbar({ navBackground }) {
   return (
     <Container navBackground={navBackground}>
       <div className="search__bar">
-        <FaSearch />
-        <input type="text" placeholder="Artists, songs, or podcasts" />
+        <FaSearch  color="black"/>
+        <input type="text" className="text-black" placeholder="Artists, songs, or podcasts" />
       </div>
       <div className="avatar">
         <a href={userInfo?.userUrl}>
@@ -34,6 +34,7 @@ const Container = styled.div`
     navBackground ? "rgba(0,0,0,0.7)" : "none"};
   .search__bar {
     background-color: white;
+    font-color: black;
     width: 30%;
     padding: 0.4rem 1rem;
     border-radius: 2rem;
