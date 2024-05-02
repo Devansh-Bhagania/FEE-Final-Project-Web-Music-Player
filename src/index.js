@@ -6,12 +6,14 @@ import { StateProvider } from "./utils/StateProvider";
 import reducer, { initialState } from "./utils/Reducer";
 import { BrowserRouter } from "react-router-dom";
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
+  <>
     <BrowserRouter>
     <StateProvider initialState={initialState} reducer={reducer}>
       <App />
     </StateProvider>
     </BrowserRouter>
-  </React.StrictMode>,
+  {/* </React.StrictMode> */}
+  </>,
   document.getElementById("root")
 );

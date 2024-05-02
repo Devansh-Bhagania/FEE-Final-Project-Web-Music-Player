@@ -7,7 +7,7 @@ import { useStateProvider } from "../utils/StateProvider";
 
 export default function Homepage() {
   const [{ token }, dispatch] = useStateProvider();
-
+ 
   useEffect(() => {
     const hash = window.location.hash;
     if (hash) {

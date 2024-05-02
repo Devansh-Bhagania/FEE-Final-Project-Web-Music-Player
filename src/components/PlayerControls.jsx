@@ -6,6 +6,7 @@ import {
   BsShuffle,
 } from "react-icons/bs";
 import { CgPlayTrackNext, CgPlayTrackPrev } from "react-icons/cg";
+import {useAudio, useFullscreen, useToggle} from 'react-use';
 import { FiRepeat } from "react-icons/fi";
 import { useStateProvider } from "../utils/StateProvider";
 import axios from "axios";
@@ -51,6 +52,8 @@ export default function PlayerControls() {
         },
       }
     );
+
+    console.log(response1);
     if (response1.data !== "") {
       const currentPlaying = {
         id: response1.data.item.id,
@@ -58,13 +61,17 @@ export default function PlayerControls() {
         artists: response1.data.item.artists.map((artist) => artist.name),
         image: response1.data.item.album.images[2].url,
       };
+      
       dispatch({ type: reducerCases.SET_PLAYING, currentPlaying });
     } else {
       dispatch({ type: reducerCases.SET_PLAYING, currentPlaying: null });
     }
   };
+
+  
   return (
     <Container>
+
       <div className="shuffle">
         <BsShuffle />
       </div>
@@ -84,7 +91,27 @@ export default function PlayerControls() {
       <div className="repeat">
         <FiRepeat />
       </div>
+
+
+      {/* <div className="w-full flex items-center mt-1.5 gap-x-2">
+                    {audio}
+                    <div className="text-[0.688rem] text-white text-opacity-70">
+                        {secondsToTime(state?.time)}
+                    </div>
+                    <CustomRange
+                        step={0.1}
+                        min={0}
+                        max={state?.duration || 1}
+                        value={state?.time}
+                        onChange={value => controls.seek(value)}
+                    />
+                    <div className="text-[0.688rem] text-white text-opacity-70">
+                        {secondsToTime(state?.duration)}
+                    </div>
+                </div> */}
     </Container>
+
+    
   );
 }
 

@@ -9,8 +9,9 @@ const SearchPage = () => {
     const [newReleases, setNewReleases] = useState([]);
     const [showList, setShowList] = useState([]);
     const [browseSingle, setBrowseSingle] = useState([]);
-    // const [{ token },dispatch] = useStateProvider();
-    const token = 'BQCAfowAkKo95FseEM0gBblh4xyDAaDq0cHrHgk3pCbO06SURThVT8uau9rO219FFrccObLwrfMfv71VTbPHItfgKpeUy3KbzLTOlVAlqWJEbJQGp0R2tRBdbnGtYyILQ11EsvfzzTcO4kVtKRLHrAwi5afLQU1cSeshV-s9AjFsVE-nxZfm-IwbfCdVNVH9kYUTEoxiIc86RHxUEr7hMLz9iPr30oJYpd4saA';
+    const [{ token },dispatch] = useStateProvider();
+    // console.log(token)
+    // const token = 'BQC-EZC9ptTQtKoA1o0gIFFw8CLYgdpbvi_SORMpPWsQ2K5ppAeVAExfGGFOTHKII7x6_Y1WzIh_Z2AkxxHVZ01H8bcJ4yXL3cEWYQt21Vc66IipAMrVMnFDlyxDqRBwHMttNTE7bUZiQscWn2zkQK2bO8A9IEpv8HiVdwC4Nj3qEjyvlDb8HvPXzplD9ilhTKET0v3Hct7t9H-L4Wd5bcLq2UeZhiw-ZKvvCA';
     useEffect(() => {
         const getPlaybackState = async () => {
             const { data } = await axios.get("https://api.spotify.com/v1/browse/new-releases?offset=0&limit=6", {
@@ -71,7 +72,7 @@ const SearchPage = () => {
 
                     <div className=' overflow-x-autoflex flex-col justify-end '>
                         <div>
-                            <h1 className="text-2xl font-bold mx-7">New Releases</h1>
+                            <h1 className="text-2xl font-bold mx-7">Categories</h1>
                         </div>
                         <div className='w-auto overflow-x-auto flex flex-row justify-end '>
 
@@ -90,7 +91,7 @@ const SearchPage = () => {
 
                     <div className='w-fit overflow-x-auto flex flex-col justify-end '>
                         <div>
-                            <h1 className="text-2xl font-bold mx-7">New Releases</h1>
+                            <h1 className="text-2xl font-bold mx-7">Playlists</h1>
                         </div>
                         <div className='w-auto overflow-x-auto flex flex-row justify-end'>
 
