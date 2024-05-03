@@ -87,7 +87,7 @@ const SearchPage = () => {
 
                     </div>
 
-                    <div className=' overflow-x-autoflex flex-col justify-end '>
+                    <div className=' overflow-x-auto flex flex-col justify-end '>
                         <div>
                             <h1 className="text-2xl font-bold mx-7">Categories</h1>
                         </div>

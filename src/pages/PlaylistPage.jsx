@@ -116,6 +116,8 @@ const PlaylistPage = ({ headerBackground }) => {
             <Navbar/>
         </div>
 
+        {/* viva done  */}
+
         {/* <div className='h-auto flex px-10 flex-row'>
             <div className='mr-10'>
                 <img src={playlist && playlist.images[0].url} alt="" className='w-[240px] h-[240px]'/>
