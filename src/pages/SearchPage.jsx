@@ -16,6 +16,8 @@ const SearchPage = () => {
 
 
     // coa preparation done with theory 
+
+    // aiml theory done and mcq on the way 
     useEffect(() => {
 
 
