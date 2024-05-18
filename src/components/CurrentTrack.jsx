@@ -40,7 +40,7 @@ export default function CurrentTrack() {
           <div className="track__info">
             <h4 className="track__info__track__name">{currentPlaying.name}</h4>
             <h6 className="track__info__track__artists">
-              {currentPlaying.artists.join(", ")}
+              {/* {currentPlaying.artists.join(", ")} */}
             </h6>
           </div>
         </div>

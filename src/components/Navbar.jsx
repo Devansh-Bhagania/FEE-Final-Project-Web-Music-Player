@@ -1,15 +1,85 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useStateProvider } from "../utils/StateProvider";
 import { FaSearch } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
+import { reducerCases } from '../utils/Constants';
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 export default function Navbar({ navBackground }) {
   const [{ userInfo }] = useStateProvider();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [songdata, setSongData] = useState([]);
+  const navigate = useNavigate();
+
+  const [searchResults, setSearchResults] = useState([]);
+  const [{ token, selectedPlaylist, selectedPlaylistId , playerState}, dispatch] =
+    useStateProvider();
+
+  const handleSearch = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  const searchSongs = async (query) => {
+    try {
+      const response = await fetch(`https://api.spotify.com/v1/search?q=${query}&type=track`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const data = await response.json();
+      // Process the data and handle the search results
+      console.log(data);
+      setSearchResults(data.tracks.items);
+    } catch (error) {
+      console.error("Error searching songs:", error);
+    }
+  };
+
+ 
+  const playTrack = async (result
+  ) => {
+    setSongData(result);
+    console.log(songdata);
+    const id = result.id;
+    const response = await axios.put(
+      `https://api.spotify.com/v1/me/player/play`,
+      {
+        uris: [`spotify:track:${id}`],
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+      }
+    );
+    if (response.status === 204) {
+      const currentPlaying = {
+        id: result.id,
+        name: result.name,
+        artists: result.artists.map((artist) => artist.name),
+        image: result.album.images[2].url,
+      };
+      dispatch({ type: reducerCases.SET_PLAYING, currentPlaying });
+      dispatch({ type: reducerCases.SET_PLAYER_STATE, playerState: true });
+      dispatch({ type: reducerCases.SET_PLAYER_STATE, playerState: true });
+    }
+  };
+
+  useEffect(() => {
+    if (searchQuery) {
+      searchSongs(searchQuery);
+    }
+  }, [searchQuery]);
+
   return (
+    <>
     <Container navBackground={navBackground}>
       <div className="search__bar">
         <FaSearch  color="black"/>
-        <input type="text" className="text-black" placeholder="Artists, songs, or podcasts" />
+        <input type="text" className="text-black" placeholder="Artists, songs, or podcasts" onChange={handleSearch} />
+        
       </div>
       <div className="avatar">
         <a href={userInfo?.userUrl}>
@@ -18,6 +88,22 @@ export default function Navbar({ navBackground }) {
         </a>
       </div>
     </Container>
+    {searchQuery && (
+      <div className="w-[90%] overflow-auto rounded-lg bg-[#1e525e] mx-auto h-[500px] ">
+        {
+          searchResults.map((result) => (
+            <div key={result.id} onClick={()=>playTrack(result)} className="flex hover:bg-neutral-900 hover:cursor-pointer items-center gap-3 p-3">
+              <img src={result.album.images[0].url} alt={result.name} className="w-16 h-16 rounded-lg" />
+              <div>
+                <p className="text-white">{result.name}</p>
+                <p className="text-gray-400">{result.artists[0].name}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    )}
+    </>
   );
 }
 
