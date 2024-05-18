@@ -4,14 +4,16 @@ import axios from 'axios';
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
 import { Link, Navigate, Route, Router } from 'react-router-dom';
+import { IoCreate } from 'react-icons/io5';
 
-
+import Modal from '../components/Modal';
 
 const Mylibrary = () => {
         const [playlists, setPlaylists] = useState([]);
     const [newReleases, setNewReleases] = useState([]);
     const [showList, setShowList] = useState([]);
     const [browseSingle, setBrowseSingle] = useState([]);
+    const [showModal, setShowModal] = useState(false);
    
     const [{ token },dispatch] = useStateProvider();
     // const token = 'BQC-EZC9ptTQtKoA1o0gIFFw8CLYgdpbvi_SORMpPWsQ2K5ppAeVAExfGGFOTHKII7x6_Y1WzIh_Z2AkxxHVZ01H8bcJ4yXL3cEWYQt21Vc66IipAMrVMnFDlyxDqRBwHMttNTE7bUZiQscWn2zkQK2bO8A9IEpv8HiVdwC4Nj3qEjyvlDb8HvPXzplD9ilhTKET0v3Hct7t9H-L4Wd5bcLq2UeZhiw-ZKvvCA';
@@ -62,6 +64,9 @@ const Mylibrary = () => {
     // console.log(newReleases)
     return (
         <>
+        {
+                showModal ? <Modal setShowModal={setShowModal} />:<></>
+                         }
             <div className='flex flex-row  text-white  relative'>
 
 
@@ -103,7 +108,7 @@ const Mylibrary = () => {
                         <div>
                             <h1 className="text-2xl font-bold mx-7">Playlists</h1>
                         </div>
-                        <div className='w-auto overflow-x-auto flex flex-row justify-end'>
+                        <div className='w-auto items-center overflow-x-auto flex flex-row justify-end'>
 
                             {
                                 playlists?.items?.map((item) => (
@@ -113,6 +118,15 @@ const Mylibrary = () => {
                                     </div>
                                 ))
                             }
+                            <div>
+                            <div onClick={()=>setShowModal(true)} className='w-[160px] bg-[#324f] h-[160px] rounded-lg bg-white'>
+                              <img src="https://t.scdn.co/images/728ed47fc1674feb95f7ac20236eb6d7.jpeg" className='rounded-lg' alt="dasd" />
+                            </div>      
+                            <div className='text-md font-bold mt-2'>
+                                    Create Playlist
+                            </div>
+                            </div>
+                            
                         </div>
                     </div>
 
@@ -137,8 +151,9 @@ const Mylibrary = () => {
 
                 </div>
 
-                         
             </div>
+                     
+            
             
         </>
     );
