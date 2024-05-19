@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import {
   BsFillPlayCircleFill,
@@ -11,6 +11,7 @@ import { FiRepeat } from "react-icons/fi";
 import { useStateProvider } from "../utils/StateProvider";
 import axios from "axios";
 import { reducerCases } from "../utils/Constants";
+import Queue from "./Queue";
 export default function PlayerControls() {
   const [{ token, playerState }, dispatch] = useStateProvider();
 
@@ -69,8 +70,11 @@ export default function PlayerControls() {
   };
 
   
+
+  
   return (
     <Container>
+      <Queue/>
 
       <div className="shuffle">
         <BsShuffle />
@@ -84,6 +88,16 @@ export default function PlayerControls() {
         ) : (
           <BsFillPlayCircleFill onClick={changeState} />
         )}
+
+
+
+{/* <input
+      type="range"
+      min="0"
+      max={duration}
+      value={currentTime}
+      onChange={handleSeekChange}
+    /> */}
       </div>
       <div className="next">
         <CgPlayTrackNext onClick={() => changeTrack("next")} />

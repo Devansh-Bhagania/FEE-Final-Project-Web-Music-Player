@@ -62,6 +62,11 @@ const Mylibrary = () => {
     //     Router.push('/')
     // }
     // console.log(newReleases)
+    
+
+
+
+
     return (
         <>
         {
@@ -113,8 +118,8 @@ const Mylibrary = () => {
                             {
                                 playlists?.items?.map((item) => (
                                     <div key={item.id} className='w-[160px] m-7' >
-                                        <Link to={`/mylibrary/${item.id}`}><img src={item.images[0].url} alt={item.name} className="w-full rounded-lg h-auto" /></Link>
-                                        <p className="text-md font-bold mt-2">{item.name}</p>
+                                        <Link to={`/mylibrary/${item.id}`}><img src={item?.images[0].url} alt={item?.name} className="w-full rounded-lg h-auto" /></Link>
+                                        <p className="text-md font-bold mt-2">{item?.name}</p>
                                     </div>
                                 ))
                             }

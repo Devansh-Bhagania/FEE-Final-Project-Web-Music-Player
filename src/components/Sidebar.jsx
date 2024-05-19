@@ -36,6 +36,8 @@ export default function Sidebar() {
         </ul>
       </div>
       <Playlists />
+
+   
     </Container>
   );
 }

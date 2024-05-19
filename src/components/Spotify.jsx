@@ -39,6 +39,11 @@ export default function Spotify() {
     getUserInfo();
   }, [dispatch, token]);
   useEffect(() => {
+
+    
+      
+
+
     const getPlaybackState = async () => {
       const { data } = await axios.get("https://api.spotify.com/v1/me/player", {
         headers: {
@@ -46,6 +51,25 @@ export default function Spotify() {
           "Content-Type": "application/json",
         },
       });
+
+      const { data: devices } = await axios.get('https://api.spotify.com/v1/me/player/devices', {
+        headers: {
+          Authorization: "Bearer " + token,
+          "Content-Type": "application/json",
+        },
+      });
+      console.log(devices);
+
+      const { data :transfer } = await axios.put('https://api.spotify.com/v1/me/player', {
+        device_ids: ["ab89426af9b9d9a466c914806faba7cef5c6aac0"],
+      }, {
+        headers: {
+          Authorization: "Bearer " + token,
+          "Content-Type": "application/json",
+        },
+      });
+      console.log(transfer);
+      
       dispatch({
         type: reducerCases.SET_PLAYER_STATE,
         playerState: data.is_playing,
@@ -81,7 +105,7 @@ const Container = styled.div`
   grid-template-rows: 85vh 15vh;
   .spotify__body {
     display: grid;
-    grid-template-columns: 15vw 85vw;
+    grid-template-columns: 20vw 80vw;
     height: 100%;
     width: 100%;
     background: linear-gradient(transparent, rgba(0, 0, 0, 1));
