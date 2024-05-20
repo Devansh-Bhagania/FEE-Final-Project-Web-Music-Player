@@ -181,7 +181,7 @@ const PlaylistPage = ({ headerBackground }) => {
   return (
     <>
       <div className='h-screen flex flex-row '>
-        <div className='w-[20%]'>
+        <div className='w-[25%]'>
           <Sidebar />
         </div>
 

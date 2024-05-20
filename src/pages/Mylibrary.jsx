@@ -75,7 +75,7 @@ const Mylibrary = () => {
             <div className='flex flex-row  text-white  relative'>
 
 
-                <div className='w-[20%] flex h-dvh sticky top-0 flex-col gap-3 '>
+                <div className='w-[25%] flex h-dvh sticky top-0 flex-col gap-3 '>
 
                     <Sidebar />
                 </div>
