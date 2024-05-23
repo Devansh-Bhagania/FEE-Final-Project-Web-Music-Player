@@ -4,7 +4,7 @@ import styled from "styled-components";
 export default function Login() {
   const handleClick = async () => {
     const client_id = "9314ec015e874fa9923d9f3a231a2c4b";
-    const redirect_uri = "https://fee-final-project-web-music-player.onrender.com/";
+    const redirect_uri = "https://fee-final-project-web-music-player.vercel.app//";
     const api_uri = "https://accounts.spotify.com/authorize";
     const scope = [
       "user-read-private",
