@@ -11,17 +11,6 @@ const SearchPage = () => {
     const [browseSingle, setBrowseSingle] = useState([]);
     const [artist, setArtist] = useState([]);
     const [{ token },dispatch] = useStateProvider();
-    // console.log(token)
-    // const token = 'BQC-EZC9ptTQtKoA1o0gIFFw8CLYgdpbvi_SORMpPWsQ2K5ppAeVAExfGGFOTHKII7x6_Y1WzIh_Z2AkxxHVZ01H8bcJ4yXL3cEWYQt21Vc66IipAMrVMnFDlyxDqRBwHMttNTE7bUZiQscWn2zkQK2bO8A9IEpv8HiVdwC4Nj3qEjyvlDb8HvPXzplD9ilhTKET0v3Hct7t9H-L4Wd5bcLq2UeZhiw-ZKvvCA';
-
-
-    // coa preparation done with theory 
-
-    // aiml theory done and mcq on the way 
-
-
-
-    // enterprises software started / 
     useEffect(() => {
 
 
@@ -78,16 +67,15 @@ const SearchPage = () => {
     console.log(newReleases)
     return (
         <>
-            <div className='flex flex-row  text-white  relative'>
+            <div className='flex flex-row  overflow-x-hidden w-[100%] text-white  '>
 
 
-                <div className='w-[20%] flex h-dvh sticky top-0 flex-col gap-3 '>
-
+                <div className='w-[17%]'>
                     <Sidebar />
                 </div>
 
 
-                <div >
+                <div className='w-[83%]' >
 
 
 

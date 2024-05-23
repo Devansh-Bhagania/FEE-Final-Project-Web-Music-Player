@@ -9,7 +9,7 @@ import { IoCreate } from 'react-icons/io5';
 import Modal from '../components/Modal';
 
 const Mylibrary = () => {
-        const [playlists, setPlaylists] = useState([]);
+    const [playlists, setPlaylists] = useState([]);
     const [newReleases, setNewReleases] = useState([]);
     const [showList, setShowList] = useState([]);
     const [browseSingle, setBrowseSingle] = useState([]);
@@ -75,13 +75,13 @@ const Mylibrary = () => {
             <div className='flex flex-row  text-white  relative'>
 
 
-                <div className='w-[25%] flex h-dvh sticky top-0 flex-col gap-3 '>
+                <div className='w-[15%] flex h-dvh sticky top-0 flex-col gap-3 '>
 
                     <Sidebar />
                 </div>
 
 
-                <div >
+                <div className='w-[85%]'>
 
 
 

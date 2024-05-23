@@ -180,14 +180,14 @@ const PlaylistPage = ({ headerBackground }) => {
 
   return (
     <>
-      <div className='h-screen flex flex-row '>
-        <div className='w-[25%]'>
+      <div className='h-screen flex flex-row w-[100%]'>
+        <div className='w-[22%]'>
           <Sidebar />
         </div>
 
 
 
-        <div className='grow flex overflow-auto flex-col gap-3'>
+        <div className='w-[88%] flex overflow-auto flex-col gap-3'>
 
           <div>
             <Navbar />

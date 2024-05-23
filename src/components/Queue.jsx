@@ -68,7 +68,7 @@ const Queue = () => {
     }, []);
 
     return (
-        <div className="queue absolute flex flex-col gap-3 bottom-32 left-5 rounded-lg  w-[270px] h-[200px] bg-[#102c33] overflow-auto scrollbar scrollbar-thumb-gray-500 scrollbar-track-gray-300">
+        <div className="queue absolute flex flex-col gap-3 bottom-32 left-5 rounded-lg  w-[250px] h-[200px] bg-[#102c33] overflow-auto scrollbar scrollbar-thumb-gray-500 scrollbar-track-gray-300">
             <h1 className="text-2xl font-semibold text-white p-3 pl-5">Queue</h1>
 
           {

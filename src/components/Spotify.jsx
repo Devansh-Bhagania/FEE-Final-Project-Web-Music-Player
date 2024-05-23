@@ -18,7 +18,7 @@ export default function Spotify() {
       ? setNavBackground(true)
       : setNavBackground(false);
     bodyRef.current.scrollTop >= 268
-      ? setHeaderBackground(true)
+   30   ? setHeaderBackground(true)
       : setHeaderBackground(false);
   };
   useEffect(() => {
@@ -60,15 +60,15 @@ export default function Spotify() {
       });
       console.log(devices);
 
-      const { data :transfer } = await axios.put('https://api.spotify.com/v1/me/player', {
-        device_ids: ["ab89426af9b9d9a466c914806faba7cef5c6aac0"],
-      }, {
-        headers: {
-          Authorization: "Bearer " + token,
-          "Content-Type": "application/json",
-        },
-      });
-      console.log(transfer);
+      // const { data :transfer } = await axios.put('https://api.spotify.com/v1/me/player', {
+      //   device_ids: ["ab89426af9b9d9a466c914806faba7cef5c6aac0"],
+      // }, {
+      //   headers: {
+      //     Authorization: "Bearer " + token,
+      //     "Content-Type": "application/json",
+      //   },
+      // });
+      // console.log(transfer);
       
       dispatch({
         type: reducerCases.SET_PLAYER_STATE,
